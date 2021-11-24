@@ -1,0 +1,11 @@
+img {
+    max-width: 20%;
+    height: auto;
+}
+button[disabled]{
+    cursor: not-allowed !important;
+    pointer-events: auto! important;
+}
+.navbar-light{
+    background: hsla(205, 46%, 30%, 1) !important;
+}

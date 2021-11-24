@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+            <h1 style="color: aliceblue;" class="navbar-brand">ENCORA'S Dashboard</h1>
+            <div class="d-flex">
+                <button routerLink="/home" class="btn btn-success">Go Back</button>
+                <button routerLink="/login" class="btn btn-danger mx-3">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <h4>Companies Details</h4>
+    </div>
+        
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of companyData">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td><img src={{row.logo}} alt =""></td>
+                <td>{{row.description}}</td>
+            </tr>
+        </tbody>
+    </table>

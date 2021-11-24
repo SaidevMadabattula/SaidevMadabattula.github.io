@@ -1,0 +1,81 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;" class="navbar-brand">ENCORA'S Dashboard</h1>
+        <div class="d-flex">
+            <button routerLink="/companies" class="btn btn-success">Companies</button>
+            <button routerLink="/login" class="btn btn-danger mx-3">Logout</button>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+<h4>Contact Person Details</h4>
+<button type="button" id="add-btn" class="btn btn-success" style = "float:right;" (click)="clickAddEmployee()" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact Person</button>
+</div>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Company Id</th>
+            <th scope="col">Id</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of employeeData">
+
+            <td>{{row.name}}</td>
+            <td>{{row.country}}</td>
+            <td>{{row.phone}}</td>
+            <td>{{row.companyId}}</td>
+            <td>{{row.id}}</td>
+            <td>
+                <button style="color: #fff;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="onEdit(row)">Edit</button>
+                <button style="color: #fff;" class="btn btn-danger mx-3" (click)="deleteEmployeeDetail(row)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Contact Person Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span class="text-danger" *ngIf="formValue.controls['name'].dirty && formValue.hasError('required','name')">*Name is required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Country</label>
+                        <input type="text" formControlName="country" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" *ngIf="formValue.controls['country'].dirty && formValue.hasError('required','country')">*Country is required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Phone</label>
+                        <input type="text" formControlName="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span class="text-danger" *ngIf="formValue.controls['phone'].dirty && formValue.hasError('required','phone')">*Phone is required</span>
+                        <span class="text-danger" *ngIf="formValue.controls['phone'].dirty && formValue.hasError('pattern','phone')">*Phone must contain only numbers</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Company Id</label>
+                        <input type="text" formControlName="companyId" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" *ngIf="formValue.controls['companyId'].dirty && formValue.hasError('required','companyId')">*Company Id is required</span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="showAdd" [disabled]="!formValue.valid" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+                <button type="button" *ngIf="showUpdate" [disabled]="!formValue.valid" (click)="editEmployeeDetail()" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
