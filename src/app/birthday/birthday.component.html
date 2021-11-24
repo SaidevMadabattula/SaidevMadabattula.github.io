@@ -1,0 +1,36 @@
+<canvas id="canvas"></canvas>
+<style>canvas {display: block;position: relative; z-index: 1;pointer-events: none;position: fixed;top: 0;}</style>
+    <h1 class="font-weight-bold text-center" style="margin-top: 10px;" [style.color]="colorSelected" id="h1"> HAPPY BIRTHDAY {{who}} </h1>
+    <h2 id="h2" class="text-center">  My Best Wishes</h2>
+    <img class="img-thumbnail" src="/assets/img/img.jpg" alt="Cake-For-You" id="img" style="    border: 2px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 300px;
+    height: 150px;"/>
+<div class="text-center m-1 font-weight-bolder">
+    <button class="btn btn-lg btn-danger" data-playing="false" role="switch" aria-checked="false">
+        <span> Play </span>
+    </button>
+</div>
+<div class="balloon">
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:5px;">☺</span>
+    </div>
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:15px;">B</span>
+    </div>
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:15px;">D</span>
+    </div>
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:15px;">A</span>
+    </div>
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:15px;">Y</span>
+    </div>
+    <div><span style="font-size: 70px; color:white; position: relative; margin-left:15px;">!</span>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/confetti.js"></script>
+
+<audio src="assets/song/happy-birthday.mp3" type="audio/mpeg"></audio>
+

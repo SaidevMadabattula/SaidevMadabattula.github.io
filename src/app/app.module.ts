@@ -9,6 +9,7 @@ import { ApiService } from './shared/api.service';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CompaniesComponent } from './companies/companies.component';
+import { BirthdayComponent } from './birthday/birthday.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CompaniesComponent } from './companies/companies.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    BirthdayComponent
   ],
   imports: [
     BrowserModule,
